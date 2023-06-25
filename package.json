@@ -1,0 +1,17 @@
+{
+  "name": "sneakmax",
+  "version": "1.0.0",
+  "description": "SneakersShop",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"(npm run develop --prefix backend)\" \"(npm run dev --prefix frontend)\"",
+    "setup_frontend": "npm init vite@latest frontend -- --template react; npm pkg set proxy=http://localhost:1337 --prefix frontend; npm i --prefix frontend",
+    "setup_backend": "npx create-strapi-app@latest backend --template sneakmax --quickstart --no-run; cd backend && npm run strapi import -- -f ../data.tar.gz --force; rm ../data.tar.gz",
+    "postinstall": "concurrently \"(npm run setup_backend)\" \"(npm run setup_frontend)\""
+  },
+  "author": "Sergey Syromyatnikov",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
