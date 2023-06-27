@@ -1,0 +1,23 @@
+{
+  "name": "sneakmax_backend",
+  "type": "module",
+  "bin": {
+    "start-server": "./bin/index.js"
+  },
+  "version": "1.1.1",
+  "main": "plugin.js",
+  "author": "Sergey Syromyatnikov",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/jwt": "^7.1.0",
+    "@fastify/static": "^6.10.2",
+    "commander": "^11.0.0",
+    "fastify": "^4.18.0",
+    "fastify-cli": "^5.7.1",
+    "http-errors": "^2.0.0",
+    "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "start": "npx fastify start ./src/plugin.js -l info -P -a 0.0.0.0 -p 5001"
+  }
+}
